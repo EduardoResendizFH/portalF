@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row style="display: block; margin: auto;">
+      <ion-col size="8">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Hidromex</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form (ngSubmit)="login(fLogin)" #fLogin="ngForm" id="contenedor">
+              <ion-item>
+                <ion-label position="floating">Correo:</ion-label>
+                <ion-input 
+                  name="email" 
+                  [(ngModel)]= "datos.email"
+                  required 
+                  type="email" 
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Contraseña:</ion-label>
+                <ion-input
+                  type="password"
+                  name= "password"
+                  [(ngModel)] = "datos.password"
+                  required>
+              </ion-input>
+              </ion-item>
+              <ion-button type="submit"fill="clear" shape="round">
+                Ingresar
+              </ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

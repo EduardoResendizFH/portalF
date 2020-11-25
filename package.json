@@ -1,5 +1,5 @@
 {
-  "name": "hidromexF",
+  "name": "hidromexf",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -50,5 +50,7 @@
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "license": "ISC"
 }
