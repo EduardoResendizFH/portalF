@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { AlertController, MenuController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -18,7 +18,9 @@ export class LoginPage implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private alerCtrl: AlertController,
+    public menu: MenuController
   ) { }
 
   ngOnInit() {
@@ -38,12 +40,11 @@ export class LoginPage implements OnInit {
      const validar = this.auth.login(this.datos).subscribe((data:any) =>{
        //console.log(data.message);
        let mensaje = data.message;
-       console.log(mensaje);
+       console.log(data);
        
-       if (mensaje === 'User not found') {
-         console.log('no eres bienvenido usuario');
-       }else if(mensaje ===  'Invalid password'){
-         console.log('no eres bienvenido password');
+       if (data.message) {
+         //console.log('no eres bienvenido usuario');
+         this.failed(data.message);
        }else{
          //console.log('bienvenido', data.token);
          this.navCtrl.navigateForward('/inicio', {animated: true});
@@ -56,6 +57,25 @@ export class LoginPage implements OnInit {
   async guardarToken(token: string) {
     this.token = token;
     await localStorage.setItem('token', token);
+  }
+
+  async failed(message) {
+    const alert = await this.alerCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Error',
+      subHeader: 'Usuario/Contraseña son incorrectos',
+      message: message
+    });
+
+    await alert.present();
+  }
+  //menu Disable 
+  ionViewDidEnter(){
+    this.menu.enable(false);
+  }
+
+  ionViewWillLeave(){
+    this.menu.enable(true);
   }
 
 }

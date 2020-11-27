@@ -1,10 +1,17 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="goCatalogo()">
+        <ion-icon name="book-outline" slot="end"></ion-icon>
+        Catalogos
+      </ion-button>
+    </ion-buttons>
     <ion-title class="ion-text-center">Hidromex</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
   <ion-grid fixed>
     <ion-row>
       <ion-col size="6" *ngFor="let data of products">
@@ -21,3 +28,4 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+
