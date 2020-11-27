@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { ProductsService } from 'src/app/services/products.service';
+
 
 @Component({
   selector: 'app-inicio',
@@ -10,7 +12,8 @@ export class InicioPage implements OnInit {
   products:any=[];
 
   constructor(
-    private _productsService: ProductsService
+    private _productsService: ProductsService,
+    public navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -30,6 +33,10 @@ export class InicioPage implements OnInit {
     this._productsService.deleteProducts(id).subscribe((data:any) =>{
       console.log(data);
     })
+  }
+
+  goCatalogo(){
+    this.navCtrl.navigateForward('/catalogos');
   }
 
 }

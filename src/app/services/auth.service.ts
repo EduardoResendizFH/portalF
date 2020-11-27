@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { resolve } from 'dns';
 import { promise } from 'protractor';
 import { environment } from 'src/environments/environment'
+import { Usuario } from '../models/Usuario.model';
 
 const URL = environment.url;
 
@@ -12,28 +13,21 @@ const URL = environment.url;
 export class AuthService {
 
   token: string = null;
-  user = {}
+  user = {};
+  public usuario: Usuario;
 
   constructor(
     private _http:HttpClient
   ) { }
 
   login(body){
-    //const body = { email, password }
        return this._http.post(`${URL}/api/auth/signin`,body);
   }  
+
+  get role():'admin' | 'user' {
+    return this.usuario.roles;
+  }
   
-  async guardarToken(token: string) {
-    this.token = token;
-    await localStorage.setItem('token', token);
-  }
 
-  async cargarToken(){
-    this.token = await localStorage.getItem('token') || null;
-  }
-
-  productos(){
-    return this._http.get(`${URL}/products/`);
-  }
 
 }
