@@ -1,16 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">login</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-title class="ion-text-center">Login</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-grid fixed>
-    <ion-row style="display: block; margin: auto;">
-      <ion-col size="8">
-        <ion-card>
+    <ion-row >
+      <ion-col size="12" sizeLg="4" style="margin: auto; display: block;">
+        <ion-card shape="round">
           <ion-card-header>
-            <ion-card-title class="ion-text-center">Hidromex</ion-card-title>
+            <img src="../../../assets/icon/icon.png" alt="">
           </ion-card-header>
           <ion-card-content>
             <form (ngSubmit)="login(fLogin)" #fLogin="ngForm" id="contenedor">
@@ -33,8 +32,9 @@
                   required>
               </ion-input>
               </ion-item>
-              <ion-button type="submit"fill="clear" shape="round">
-                Ingresar
+              <br>
+              <ion-button type="submit" expand="full" class="ion-no-margin" shape="round">
+                Entrar
               </ion-button>
             </form>
           </ion-card-content>

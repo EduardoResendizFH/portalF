@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/catalogos"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Autotanques</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="6" style="display: block; margin: auto;">
+        <ion-card>
+          <ion-card-header>
+            <p style="margin: 3%; text-align: justify;">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+              Pariatur, libero. Sed, nesciunt veritatis ratione similique
+              rerum, vitae at laborum voluptatum aspernatur assumenda amet
+              magni sit quas distinctio odit, a laudantium?
+            </p>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Empresa Ferroviaria</ion-label>
+              <ion-select placeholder="Selecciona" (ionChange)="tren($event)">
+                <ion-select-option value="KCSM">KCSM</ion-select-option>
+                <ion-select-option value="Ferromex">Ferromex</ion-select-option>
+                <ion-select-option value="Ferrovalle">Ferrovalle</ion-select-option>
+                <ion-select-option value="Ferrosur">Ferrosur</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item-divider color="light">
+              <ion-label class="ion-text-center">Carro Tanques</ion-label>
+            </ion-item-divider>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum vel 
+               reprehenderit, ipsa modi enim iure possimus, dignissimos et commodi 
+               repellat
+               natus rem soluta ducimus! Voluptatum soluta est atque maxime dignissimos.</p>
+            <div *ngFor="let att of anArray; let idx = index">
+              <ion-card-title class="ion-text-center">Carro Tanque {{idx+1}}</ion-card-title>
+              <ion-item>
+                <ion-label color="primary">{{att.label}}{{idx+1}}. Capacidad:</ion-label>
+                <ion-input type="number"  text-right  [(ngModel)]="anArray[idx].capacidad"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary">{{att.label}}{{idx+1}}. Numero Economico:</ion-label>
+                <ion-input type="number"  text-right  [(ngModel)]="anArray[idx].nEconomico"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="primary">{{att.label}}{{idx+1}}. Peso Tara(Toneladas):</ion-label>
+                <ion-input type="number"  text-right  [(ngModel)]="anArray[idx].pesoTara"></ion-input>
+              </ion-item>
+            </div>
+            <button ion-button   (click)="Add()">Añadir</button>
+            <!-- <button ion-button full  (click)="goTo()" >let's go</button> -->
+            <ion-button (click)="enviar()" expand="block" fill="clear" shape="round">
+              Enviar
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button (click)="go()" expand="block" fill="clear" shape="round">
+    Click me
+  </ion-button>
+</ion-content>
+

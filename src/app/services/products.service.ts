@@ -25,4 +25,20 @@ export class ProductsService {
     //console.log(headers);
     return this._http.delete(`${URL}/products/${id}`,{headers});
   }
+
+  getProductoGasolina(){
+    return this._http.get(`${URL}/api/productos/gasolina`);
+  }
+
+  getProductoDieselAu(){
+    return this._http.get(`${URL}/api/productos/dieselAu`);
+  }
+
+  getProductoDieselDuba(){
+    return this._http.get(`${URL}/api/productos/dieselDuba`);
+  }
+  
+  getProductoTurbosina(){
+    return this._http.get(`${URL}/api/productos/turbosina`);
+  }
 }

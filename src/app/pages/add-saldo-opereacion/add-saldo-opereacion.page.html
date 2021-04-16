@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Nuevo Saldo Operación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="4" style="margin: auto; display: block;">
+        <form #formulario="ngForm" (ngSubmit)="form()">
+          <ion-card>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Litros:</ion-label>
+                <ion-input type="number" name="litros" [(ngModel)]="datos.litros" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>CT:</ion-label>
+                <ion-select placeholder="Selecciona" name="ct" [(ngModel)]="datos.ct" required>
+                  <ion-select-option value="JRTX011015">JRTX011015</ion-select-option>
+                  <ion-select-option value="CTCX735906">CTCX 735906</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <!-- <ion-item-divider color="light">
+                <ion-label class="ion-text-center">Ventas</ion-label>
+              </ion-item-divider>
+              <ion-item>
+                <ion-label position="floating">Venta $:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Estatus Factura:</ion-label>
+                <ion-select placeholder="Selecciona">
+                  <ion-select-option value="JRTX011015" class="pagada" >PAGADA</ion-select-option>
+                  <ion-select-option value="CTCX735906">PENDIENTE</ion-select-option>
+                  <ion-select-option value="CTCX735906">NO PAGADA</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item-divider color="light">
+                <ion-label>Costos</ion-label>
+              </ion-item-divider>
+              <ion-item>
+                <ion-label position="floating">Precio por litro:</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Costo:</ion-label>
+                <ion-input></ion-input>
+              </ion-item> -->
+              <ion-button 
+              type="submit" 
+              expand="block" 
+              fill="clear" 
+              shape="round"
+              [disabled]="formulario.invalid">
+                Enviar
+              </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

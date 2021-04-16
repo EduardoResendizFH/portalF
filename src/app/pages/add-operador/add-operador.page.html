@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="start" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"> Operador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg="10" style="margin: auto; display: block;">
+        <ion-card>
+
+          <form #formulario="ngForm" (ngSubmit)="form()">
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating">Nombre(S):</ion-label>
+                <ion-input name="nombre" [(ngModel)]="datos.nombre" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" >Apellido(S):</ion-label>
+                <ion-input name="apellidos" [(ngModel)]="datos.apellidos"  required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" >Telefono(Cel):</ion-label>
+                <ion-input type="text" pattern="^([0-9]+)$" name="telefono" [(ngModel)]="datos.telefono" required maxlength="10" ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">RFC:</ion-label>
+                <ion-input name="rfc" [(ngModel)]="datos.rfc" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Licencia</ion-label>
+                <ion-input name="licencia" [(ngModel)]="datos.licencia" required></ion-input>
+              </ion-item>
+              <ion-input type="file"  class="d-none" (change)="onPhotoSelected($event)" #photoInput required></ion-input>
+              <img [src]="photoSelected || '../../../assets/no hay imagen.png' " style="width: 30%; display: block; margin: auto;" alt="No image" (click)="photoInput.click()">
+              <ion-button 
+              type="submit" 
+              expand="block" 
+              fill="clear" 
+              shape="round"
+              [disabled]="formulario.invalid"
+              >
+                Guardar
+              </ion-button>
+            </ion-card-content>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
