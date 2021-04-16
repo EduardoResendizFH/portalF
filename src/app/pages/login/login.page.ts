@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AlertController, MenuController, NavController } from '@ionic/angular';
+import { AlertController, MenuController, NavController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
   constructor(
     private auth: AuthService,
     private navCtrl: NavController,
-    private alerCtrl: AlertController,
+    private toastCtrl: ToastController,
     public menu: MenuController
   ) { }
 
@@ -39,8 +39,10 @@ export class LoginPage implements OnInit {
 
      const validar = this.auth.login(this.datos).subscribe((data:any) =>{
        //console.log(data.message);
-       let mensaje = data.message;
+       //let mensaje = data.message;
        console.log(data);
+       this.auth.usuario = data.userFound;
+       console.log(this.auth.usuario,'this.auth.usuario');
        
        if (data.message) {
          //console.log('no eres bienvenido usuario');
@@ -60,14 +62,15 @@ export class LoginPage implements OnInit {
   }
 
   async failed(message) {
-    const alert = await this.alerCtrl.create({
+    const toast = await this.toastCtrl.create({
       cssClass: 'my-custom-class',
-      header: 'Error',
-      subHeader: 'Usuario/Contraseña son incorrectos',
-      message: message
+      header: 'Acceso denegado',
+      message: 'Datos ingresados son incorrectos',
+      color:'danger',
+      duration: 2000
     });
 
-    await alert.present();
+    await toast.present();
   }
   //menu Disable 
   ionViewDidEnter(){

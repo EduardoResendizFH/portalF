@@ -1,9 +1,8 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button (click)="goCatalogo()">
-        <ion-icon name="book-outline" slot="end"></ion-icon>
-        Catalogos
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon slot="start" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title class="ion-text-center">Hidromex</ion-title>
@@ -11,17 +10,16 @@
 </ion-header>
 
 <ion-content>
-  
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="6" *ngFor="let data of products">
+      <ion-col size="12" sizeLg="8" style="display: block; margin: auto;">
         <ion-card>
           <ion-card-content>
-            <p>{{data.name}}</p>
-            <p>id: {{data._id}}</p>
-            <ion-item (click)="delete(data._id)">
-              <ion-icon name="trash" slot="start"></ion-icon>
-            </ion-item>
+            <ion-img src="../../../assets/acercaNosotros.PNG"></ion-img>
+            <br>
+            <ion-img src="../../../assets/mision.PNG"></ion-img>
+            <br>
+            <ion-img src="../../../assets/vision.PNG"></ion-img>
           </ion-card-content>
         </ion-card>
       </ion-col>

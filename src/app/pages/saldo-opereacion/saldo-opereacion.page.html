@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="end">
+      <ion-button (click)="goSaldo()">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Nuevo
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Saldo Opereación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="_math()" expand="block" fill="clear" shape="round">
+   Operaciones
+  </ion-button>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="pdf()">
+      <ion-icon name="print-outline" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

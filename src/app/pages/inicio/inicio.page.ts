@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { ProductsService } from 'src/app/services/products.service';
 
 
@@ -13,7 +13,8 @@ export class InicioPage implements OnInit {
 
   constructor(
     private _productsService: ProductsService,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public menu:MenuController
   ) { }
 
   ngOnInit() {
@@ -35,8 +36,25 @@ export class InicioPage implements OnInit {
     })
   }
 
-  goCatalogo(){
-    this.navCtrl.navigateForward('/catalogos');
+
+  openMenu(){
+    this.menu.open();
+  }
+  
+  navempresa(){
+    this.navCtrl.navigateForward('/empresa');
+  }
+
+  operador(){
+    this.navCtrl.navigateForward('/operador');
+  }
+
+  navproducto(){
+    this.navCtrl.navigateForward('/producto');
+  }
+
+  navTren(){
+    this.navCtrl.navigateForward('/tren');
   }
 
 }

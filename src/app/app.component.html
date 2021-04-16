@@ -1,17 +1,18 @@
 <ion-app>
-  <ion-menu side="start" menuId="first" contentId="main">
+  <ion-menu contentId="main" menuId="main-menu" side="start" type="overlay">
     <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
+      <ion-toolbar color="secondary" >
+        <ion-title class="ion-text-center">Menu</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
+        <ion-menu-toggle>
+          <ion-item *ngFor="let data of componentes" [routerLink]="data.redirectTo">
+            <ion-icon [name]= "data.icon" slot="start"></ion-icon>
+            <ion-label>{{data.name}} </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
       </ion-list>
     </ion-content>
   </ion-menu>

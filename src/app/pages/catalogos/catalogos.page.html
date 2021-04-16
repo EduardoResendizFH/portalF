@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/inicio"></ion-back-button>
     </ion-buttons>
@@ -10,25 +10,14 @@
 <ion-content>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" sizeLg="4">
-        <ion-card (click)="operador()">
-          <ion-card-content>
-            Operador
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeLg="4">
-        <ion-card (click)="cliente()">
-          <ion-card-content>
-            Cliente
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" sizeLg="4">
-        <ion-card (click)="tracto()">
-          <ion-card-content>
-            Tracto
-          </ion-card-content>
+      <ion-col size="12" sizeLg="4" style="margin: auto; display: block;">
+        <ion-card *ngFor="let data of catalogos" [routerLink]="data.redirectTo">
+          <ion-card-header>
+            <ion-toolbar>
+              <ion-icon [name]= "data.icon" slot="end" size="large"></ion-icon>
+              <ion-card-title>{{data.name}}</ion-card-title>
+            </ion-toolbar>
+          </ion-card-header>
         </ion-card>
       </ion-col>
     </ion-row>

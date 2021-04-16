@@ -1,0 +1,5 @@
+ion-searchbar{        
+    transform: scale(1.2); // Can also scale individually with scaleX() and scaleY()
+    margin: 0 auto;
+    width: 20%; // To avoid pixelate effect that occurs with scaling
+}

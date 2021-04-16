@@ -1,5 +1,13 @@
 export class Usuario{
-    constructor(public username: string, public email: string, public password: string, public roles: 'admin' | 'user'){}
+    constructor(
+    public createdAt: Date,
+    public email: string, 
+    public username: string,
+    public password?: string,
+    public roles?: string,
+    public _id?: string,
+    public updatedAt?: Date
+    ){}
    
 
 }

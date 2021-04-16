@@ -8,7 +8,11 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import PdfFonts from "pdfmake/build/vfs_fonts";
+
+PdfMakeWrapper.setFonts(PdfFonts);
 
 @NgModule({
   declarations: [AppComponent],
